@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>球速体育 · 产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fde4d0 0%, #fbc2b0 40%, #f6b6a0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.7;
+            color: #2d2a28;
+        }
+
+        .container {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px -12px rgba(180, 90, 50, 0.25);
+            padding: 2.5rem 2rem 3rem;
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.8rem 1.2rem 2.5rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #b6532a, #e07c4f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #5f4b3f;
+            border-left: 4px solid #e4825a;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            opacity: 0.85;
+        }
+
+        .highlight-text {
+            font-size: 1.05rem;
+            background: #fceded;
+            padding: 0.1rem 0.5rem;
+            border-radius: 20px;
+            color: #b65a33;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        @media (max-width: 520px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: #fdf6f1;
+            border-radius: 24px;
+            padding: 1.2rem 1.4rem;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.7), 0 6px 12px -6px rgba(150, 70, 30, 0.18);
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -10px rgba(150, 70, 30, 0.25);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #8f4d2b;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #3f332d;
+            margin: 0;
+        }
+
+        .scenario-box {
+            background: #ffefe8;
+            border-radius: 32px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0 1.6rem;
+        }
+
+        .scenario-box h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #723b1f;
+            margin-bottom: 0.8rem;
+        }
+
+        .scenario-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scenario-box li {
+            padding: 0.3rem 0 0.3rem 1.5rem;
+            position: relative;
+            font-size: 0.98rem;
+            color: #3e2b22;
+        }
+
+        .scenario-box li::before {
+            content: "·";
+            position: absolute;
+            left: 0.4rem;
+            color: #bf6a42;
+            font-weight: 700;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1.4rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #edd9ce;
+            padding: 0.8rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #4b2f22;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #5a4237;
+            padding-left: 0.8rem;
+        }
+
+        .link-group {
+            margin: 2.2rem 0 0.6rem;
+            text-align: center;
+        }
+
+        .link-group p {
+            font-size: 1rem;
+            color: #4b382c;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #df7c53;
+            color: #fff;
+            font-weight: 500;
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+            box-shadow: 0 6px 14px -4px rgba(190, 90, 40, 0.4);
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+            margin: 0.2rem 0.3rem;
+        }
+
+        .btn-link:hover {
+            background: #c8693f;
+            transform: scale(1.02);
+            box-shadow: 0 8px 18px -6px rgba(160, 70, 30, 0.5);
+        }
+
+        .btn-link:active {
+            transform: scale(0.97);
+        }
+
+        .footnote {
+            margin-top: 2.4rem;
+            font-size: 0.85rem;
+            color: #6f5b4f;
+            text-align: center;
+            border-top: 1px dashed #dbb9aa;
+            padding-top: 1.4rem;
+        }
+
+        a.natural-link {
+            color: #b2552c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            font-weight: 500;
+        }
+
+        a.natural-link:hover {
+            color: #823c1b;
+            text-decoration-thickness: 2px;
+        }
+
+        .inline-link-sentence {
+            background: #f8e5db;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>球速体育 · 产品概要</h1>
+    <div class="subhead">快速了解一个体育信息平台的结构与用途</div>
+
+    <p style="margin-bottom: 1.2rem;">
+        <span class="highlight-text">球速体育</span> 是一个以体育赛事信息聚合为基础的服务站点，主要面向希望快速浏览赛程、赛果及相关数据的使用者。平台内容覆盖足球、篮球、网球等多个主流项目，结构上以简洁的版面呈现实时比分与统计信息，帮助用户减少信息筛选成本。如果你是第一次接触这个名称，下面从几个维度说明它的定位与使用方式。
+    </p>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>📋 信息摘要</h3>
+            <p>赛程列表、比分更新、联赛积分榜等模块集中展示，无需频繁切换页面即可掌握重点动态。</p>
+        </div>
+        <div class="feature-card">
+            <h3>⚙️ 操作逻辑</h3>
+            <p>页面布局偏重实用性，通过顶部导航和分类筛选快速定位特定赛事，减少无效点击。</p>
+        </div>
+        <div class="feature-card">
+            <h3>📊 数据颗粒度</h3>
+            <p>提供基础赛事数据，包括进球时间、红黄牌、换人记录等，适合赛况回顾与简单分析。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🧭 适用人群</h3>
+            <p>日常关注体育动态、需要快速获取比分的普通用户，以及希望了解赛事结构的轻度研究者。</p>
+        </div>
+    </div>
+
+    <div class="scenario-box">
+        <h2>典型使用场景</h2>
+        <ul>
+            <li>周末赛事密集时，打开 <strong>球速体育</strong> 快速浏览正在进行的比赛及当前比分。</li>
+            <li>赛前查看球队近期交锋记录与联赛排名，辅助形成个人判断。</li>
+            <li>赛后复盘时核对进球时间点与关键事件，补充观赛记忆。</li>
+            <li>作为信息参考源之一，与其他数据平台交叉验证，提升信息完整度。</li>
+        </ul>
+    </div>
+
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">❓ 是否需要注册才能使用？</div>
+            <div class="faq-a">目前平台基础浏览功能无需注册，可直接查看公开赛事信息。部分个性化功能可能要求登录，具体以页面指引为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 数据更新频率如何？</div>
+            <div class="faq-a">比分与赛况采用动态刷新机制，热门联赛的更新间隔通常在几十秒内，冷门赛事可能略有延迟。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 移动端适配效果怎样？</div>
+            <div class="faq-a">页面采用响应式设计，在手机与平板浏览器上均可正常浏览，核心功能模块会自适应调整布局。</div>
+        </div>
+    </div>
+
+    <div style="margin: 1.8rem 0 0.6rem; background: #f9efe9; border-radius: 40px; padding: 1.2rem 1.8rem;">
+        <p style="font-weight: 400; color: #3b2b22;">
+            <span style="background: #e8d3c6; padding: 0.1rem 0.8rem; border-radius: 30px;">💡 使用提示</span>
+            &nbsp; 体育数据平台各有侧重，建议将 <a href="https://ssl-qiususports.com" class="natural-link inline-link-sentence">球速体育</a> 作为日常信息获取渠道之一，同时结合官方赛事公告或专业统计网站进行交叉比对，以形成更全面的认知。平台本身不提供投注或博彩功能，仅聚焦于体育信息展示。
+        </p>
+    </div>
+
+    <div class="link-group">
+        <p>若想直接体验信息结构，可通过下方链接进入平台首页：</p>
+        <a href="https://ssl-qiususports.com" class="btn-link">球速体育</a>
+    </div>
+
+    <div class="footnote">
+        本页面仅为产品介绍，不构成任何引导或保证。请根据自身需要合理使用网络资源。
+    </div>
+</div>
+</body>
+</html>
